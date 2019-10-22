@@ -1,0 +1,42 @@
+<h1>
+  {{ note }} <!-- first type to bind from interpolation  -->
+</h1>
+<p>
+  first-component works!
+</p>
+<input value="{{ note2 }}" id="OK"> <!-- Second type to bind from interpolation as values  -->
+<input [id]="note3" value="{{ click1 }}" > <!-- Third type to bind from attributes  -->
+<input bind-id="note4" value="{{ click2 }}" > <!-- Forth type to bind from HTML "bind-" keyword -->
+<br>
+<br>
+<button (click)="ClickEvent()">Fist Click Event</button> <!-- Click event in HTML with function -->
+<button (click)="ClickEvent2($event)">Click Event with event</button> <!-- Click event in HTML with event function -->
+<button (click)="click1 = 'Event Clicked'; click2 = 'Event Clicked'">Click Event with normal</button> <!-- Click event in HTML with action -->
+<br>
+<br>
+<hr>
+<input id="ngModel" [(ngModel)]="ngModelSample">  <!-- Two way Data binding -->
+{{ ngModelSample }}
+<br>
+<br>
+<hr>
+<h2>If condition in angular</h2>
+<div *ngIf="IfCondition; else elseDiv">
+  If condition -- True
+</div>
+<ng-template #elseDiv>
+  else condition -- True
+</ng-template>
+<hr>
+<h2>Switch case</h2>
+<div [ngSwitch]="swithCondition">
+  <p *ngSwitchCase="'red'">Red color switch</p>
+  <p *ngSwitchCase="'blue'">blue color switch</p>
+  <p *ngSwitchDefault>Default switch</p>
+</div>
+<br>
+<hr>
+<h2>NgFor</h2>
+<div *ngFor="let color of ngForColors; odd as o; even as e; first as f; last as l; index as i">
+  {{ color }} - Index({{ i }}) - First({{ f }}) - Last({{ l }}) - Odd({{ o }}) - Even({{ e }})
+</div>
